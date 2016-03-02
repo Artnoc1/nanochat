@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         Firebase.setAndroidContext(this)
 
-        val ref = Firebase("https://topsphere.firebaseio.com/")
+        val ref = Firebase("https://topsphere.firebaseio.com/nanochat/")
 
         send_button.setOnClickListener {
-            ref.push().setValue(hashMapOf(
-                    "name" to "Android User",
-                    "text" to text_edit.text.toString()
+            ref.push().setValue(ChatMessage(
+                    name="Android User",
+                    text = text_edit.text.toString()
             ))
             text_edit.setText("")
         }
